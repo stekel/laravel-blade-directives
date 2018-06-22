@@ -25,5 +25,15 @@
         "psr-4": {
             "stekel\\LaravelBladeDirectives\\": "tests"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "stekel\\LaravelBladeDirectives\\LaravelBladeDirectivesServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
