@@ -37,6 +37,19 @@ class LaravelBladeDirectivesServiceProvider extends ServiceProvider
             
             return "<?php if((isset($model) && old('$parameter', $model->$parameter) == 1) || old('$parameter') == 1) echo 'checked=\"checked\"' ?>";
         });
+        
+        Blade::directive('checkboxValueFromArray', function ($expression) {
+             
+            list($model, $parameter, $array) = explode(',',str_replace(['(',')',' '], '', $expression));
+            $parameter = str_replace(["'", '"'], '', $parameter);
+            
+            return "<?php if(collect(old('$parameter', []))
+                ->contains(".$model."->id) ||
+                collect($array)->contains(function(\$item) use($model) {
+                
+                return \$item == ".$model."->id;
+            })) echo 'checked=\"checked\"' ?>";
+        });
     }
 
     /**

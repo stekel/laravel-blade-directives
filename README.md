@@ -14,6 +14,7 @@ $ composer require stekel/laravel-blade-directives
 
 | Function      | Description   |
 | ------------- | ------------- |
-| `@inputValue($model, $attribute)` | Displays form input value, either from the given `$model->$parameter` or from the value of `old($parameter)` |
-| `@optionValue($model, $attribute, $default)` | Sets the select option to "selected", either from the given `$model->$parameter` or from the value of `old($parameter)` |
-| `@checkboxValue($model, $attribute)` | Sets the checkbox to "checked", either from the given `$model->$parameter` or from the value of `old($parameter)` |
+| `@inputValue($model, $attribute)` | Displays form input value, either from the given `$model->$attribute` or from the value of `old($attribute)` |
+| `@optionValue($model, $attribute, $default)` | Sets the select option to "selected", either from the given `$model->$attribute` or from the value of `old($attribute)` |
+| `@checkboxValue($model, $attribute)` | Sets the checkbox to "checked", either from the given `$model->$attribute` or from the value of `old($attribute)` |
+| `@checkboxValueFromArray($model, $attribute, $array)` | Sets the checkbox to "checked", if `$array` contains either `$model->id` or `old($attribute)` |
