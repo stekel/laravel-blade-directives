@@ -19,9 +19,9 @@ class LaravelBladeDirectivesServiceProvider extends ServiceProvider
             list($model, $parameter) = explode(',',str_replace(['(',')',' '], '', $expression));
             $parameter = str_replace(["'", '"'], '', $parameter);
             
-            return "<?php if(isset($model)) echo old('$parameter', $model->$parameter); else echo old('$parameter'); ?>";
+            return "<?php if(isset($model)) echo e(old('$parameter', $model->$parameter)); else echo e(old('$parameter')); ?>";
         });
-        
+
         Blade::directive('optionValue', function ($expression) {
             
             list($model, $parameter, $default) = explode(',',str_replace(['(',')',' '], '', $expression));
